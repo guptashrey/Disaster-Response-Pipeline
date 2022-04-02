@@ -56,7 +56,7 @@ def save_data(df, database_filename):
     Stores df in a SQLite database
     """
     engine = create_engine(f'sqlite:///{database_filename}')
-    df.to_sql('disaster_messages', engine, index=False)  
+    df.to_sql('disaster_messages', engine, index=False, if_exists='replace')  
 
 def main():
     if len(sys.argv) == 4:
